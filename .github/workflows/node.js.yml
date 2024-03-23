@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 18.x
           cache: "npm"
-      - run: npx zmp-developer-token login ${{ secrets.ZALO_APP_ID }} ${{ secrets.ZALO_APP_SECRET }} ${{ secrets.ZALO_REFRESH_TOKEN }} >> $GITHUB_ENV
+      - run: npx zmp-developer-token login  4302957848165855356 KBcHMG3SgNe5wdfPpoDQ CZ5bG4rVG7OrEsXDIr51TZ4uRa18IZjmDdXbFanEJMSoTc0kBNKs6IrFRNXIOJDDKaXXVIHRJYGQNmDmO6fQ0KPdTtDhJrD67NKA4XvvHbWaH6qMKrasOLXj6HDGMLGYRLy0K4zJIJnrU1DU2s0yB2Pr46SnM400IbS5Cr9d8KLyNd0HH60w84TMLtauI0CDCo9UIGyOUWqoAnS_AK1VL5Ck1HinD54j9bmL6nnjHd1g1XShP3zR66TKCInyUtvvHN1ND7D_1aH655iA9249VY8nR3O2DHmD5JnV8m0NS4SABGfmDIPWDK8G3bf8V5mQO6uOAW9GPryWD08wEYyhQpuGVHyL1Lbl7W4ADLTFN1m3IKDDS0 >> $GITHUB_ENV
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_ACCESS_TOKEN"
