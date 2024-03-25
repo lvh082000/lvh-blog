@@ -1,5 +1,5 @@
 name: Zalo Mini App
-run-name: 🚀 Deploy
+run-name: ${{ github.event_name == 'schedule' && '✨ Refresh token' || '🚀 Deploy' }}
 
 concurrency: zalo-mini-app
 
@@ -7,9 +7,37 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: "0 0 * * *"
 
 jobs:
+  refresh_token:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: "npm"
+      - run: npx zmp-developer-token login ${{ secrets.ZALO_APP_ID }} ${{ secrets.ZALO_APP_SECRET }} ${{ secrets.ZALO_REFRESH_TOKEN }} >> $GITHUB_ENV
+      - uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: "ZALO_ACCESS_TOKEN"
+          value: ${{ env.NEW_ACCESS_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - uses: hmanzur/actions-set-secret@v2.0.0
+        with:
+          name: "ZALO_REFRESH_TOKEN"
+          value: ${{ env.NEW_REFRESH_TOKEN }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+      - name: Report
+        run: |
+          echo "### Token renewal success! :sparkles:" >> $GITHUB_STEP_SUMMARY
+
   deploy:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       matrix:
