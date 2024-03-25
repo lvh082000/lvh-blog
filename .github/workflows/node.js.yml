@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 18.x
           cache: "npm"
-      - run: npx zmp-developer-token login 665783553055575149 HpYP1w-ZArv0CfGAgQqgNaGnaWUgjaDO0rkXP927RK9bTDGQrOSqHqbPzNlMXJLHPc-CNkhrTcX4E8yfxULFSdDuztFnvX9LN7wlRRIrPsawQzrhjV8pToOixoEji2SW4bNhV8kB2sHcTB5Ap9vnTJb_g5M3faaF5qQT9ggEKG4j5UyVmkmAHNW3nrxPwG1cRJ3OEzlrEYTjRUa8xRuaFLP4vHdzXWH2L62xUxs-1MyTM-rde9WG9an0_I3EsJ00M0NKNRBzE68B4e5CaVf0LmGwh7UVuKrA9G3qSuNBBZ8V9iiwXFKd13uUraMWq0XXJY7gVidQ0rHh2xXV-ivxMdrNg7p4pafVM2om1k7cTZvL6imqtjm44LFOgOjigxycM0 >> $GITHUB_ENV
+      - run: npx zmp-developer-token deploy 665783553055575149 HpYP1w-ZArv0CfGAgQqgNaGnaWUgjaDO0rkXP927RK9bTDGQrOSqHqbPzNlMXJLHPc-CNkhrTcX4E8yfxULFSdDuztFnvX9LN7wlRRIrPsawQzrhjV8pToOixoEji2SW4bNhV8kB2sHcTB5Ap9vnTJb_g5M3faaF5qQT9ggEKG4j5UyVmkmAHNW3nrxPwG1cRJ3OEzlrEYTjRUa8xRuaFLP4vHdzXWH2L62xUxs-1MyTM-rde9WG9an0_I3EsJ00M0NKNRBzE68B4e5CaVf0LmGwh7UVuKrA9G3qSuNBBZ8V9iiwXFKd13uUraMWq0XXJY7gVidQ0rHh2xXV-ivxMdrNg7p4pafVM2om1k7cTZvL6imqtjm44LFOgOjigxycM0 >> $GITHUB_ENV
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_ACCESS_TOKEN"
