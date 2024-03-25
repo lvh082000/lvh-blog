@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 18.x
           cache: "npm"
-      - run: npx zmp-developer-token login 4302957848165855356 KBcHMG3SgNe5wdfPpoDQ QgUY7chVf3XjhQyJRD6bE6ckgHvlok0rCUkPLrd5xNOspRaiPEtMT3hFfp5blDjM4hwe8HF3ybSNf9XsVutoBWQqeGXwdwzuAxEe34tDmYmOjxbGOwlpRWk--0z2dF5pCEAq4qVwnd0LwiesRyN1L3synt1Lpua99-lxAcR-ebqVv-mdGjhc01RzbMfUylqpMi2MI0Fdq35ovjz08ystOahU_5mjtViYLCxmOplGkq8xmxK2HCFjTZN-WZzDyiT8CO6y2tZvwd8Nof0B5TdPMqFahnaRdEfLUQUD972cqNPtj9ugCvljMtkKkma5fDnURTkjAYdKzLylyBy-9-BwHqNfyY4Co8HHLTN_Bp1AFnDkmwa- >> $GITHUB_ENV
+      - run: npx zmp-developer-token login 665783553055575149 KBcHMG3SgNe5wdfPpoDQ KBcHMG3SgNe5wdfPpoDQ HpYP1w-ZArv0CfGAgQqgNaGnaWUgjaDO0rkXP927RK9bTDGQrOSqHqbPzNlMXJLHPc-CNkhrTcX4E8yfxULFSdDuztFnvX9LN7wlRRIrPsawQzrhjV8pToOixoEji2SW4bNhV8kB2sHcTB5Ap9vnTJb_g5M3faaF5qQT9ggEKG4j5UyVmkmAHNW3nrxPwG1cRJ3OEzlrEYTjRUa8xRuaFLP4vHdzXWH2L62xUxs-1MyTM-rde9WG9an0_I3EsJ00M0NKNRBzE68B4e5CaVf0LmGwh7UVuKrA9G3qSuNBBZ8V9iiwXFKd13uUraMWq0XXJY7gVidQ0rHh2xXV-ivxMdrNg7p4pafVM2om1k7cTZvL6imqtjm44LFOgOjigxycM0 >> $GITHUB_ENV
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_ACCESS_TOKEN"
@@ -61,4 +61,4 @@ jobs:
       - run: npm install -g zmp-cli
       - run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
         env:
-          NEW_ACCESS_TOKEN: HDZNI4gBYmv3qjf5J8MA3aVHt4XFdemE1wkpJqk-a7KcfwHeS9FnBYF4s1fpzuqg6UUW4KtKZ002mPuHSDMvBoJdZcb-zBvKAihhHdwPprrvpln1CiVV15_yu2rOxSO68S7l6rhdlGa2qUeWNkF535YmxmmSdhCRTh2xCH24aI4QWRysSj6LDot-m7TghEDj09tAK6gRwsaXpUfuH_cxN0pyba5T-h
+          NEW_ACCESS_TOKEN: KBcHMG3SgNe5wdfPpoDQ HpYP1w-ZArv0CfGAgQqgNaGnaWUgjaDO0rkXP927RK9bTDGQrOSqHqbPzNlMXJLHPc-CNkhrTcX4E8yfxULFSdDuztFnvX9LN7wlRRIrPsawQzrhjV8pToOixoEji2SW4bNhV8kB2sHcTB5Ap9vnTJb_g5M3faaF5qQT9ggEKG4j5UyVmkmAHNW3nrxPwG1cRJ3OEzlrEYTjRUa8xRuaFLP4vHdzXWH2L62xUxs-1MyTM-rde9WG9an0_I3EsJ00M0NKNRBzE68B4e5CaVf0LmGwh7UVuKrA9G3qSuNBBZ8V9iiwXFKd13uUraMWq0XXJY7gVidQ0rHh2xXV-ivxMdrNg7p4pafVM2om1k7cTZvL6imqtjm44LFOgOjigxycM0
