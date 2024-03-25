@@ -27,17 +27,17 @@ jobs:
         with:
           node-version: 18.x
           cache: "npm"
-      - run: npx zmp-developer-token deploy 665783553055575149 HpYP1w-ZArv0CfGAgQqgNaGnaWUgjaDO0rkXP927RK9bTDGQrOSqHqbPzNlMXJLHPc-CNkhrTcX4E8yfxULFSdDuztFnvX9LN7wlRRIrPsawQzrhjV8pToOixoEji2SW4bNhV8kB2sHcTB5Ap9vnTJb_g5M3faaF5qQT9ggEKG4j5UyVmkmAHNW3nrxPwG1cRJ3OEzlrEYTjRUa8xRuaFLP4vHdzXWH2L62xUxs-1MyTM-rde9WG9an0_I3EsJ00M0NKNRBzE68B4e5CaVf0LmGwh7UVuKrA9G3qSuNBBZ8V9iiwXFKd13uUraMWq0XXJY7gVidQ0rHh2xXV-ivxMdrNg7p4pafVM2om1k7cTZvL6imqtjm44LFOgOjigxycM0 >> $GITHUB_ENV
+      - run: npx zmp-developer-token login ${{ secrets.ZALO_APP_ID }} ${{ secrets.ZALO_APP_SECRET }} ${{ secrets.ZALO_REFRESH_TOKEN }} >> $GITHUB_ENV
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_ACCESS_TOKEN"
           value: ${{ env.NEW_ACCESS_TOKEN }}
-          token: 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
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_REFRESH_TOKEN"
           value: ${{ env.NEW_REFRESH_TOKEN }}
-          token: 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
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
       - name: Report
         run: |
           echo "### Token renewal success! :sparkles:" >> $GITHUB_STEP_SUMMARY
@@ -61,4 +61,9 @@ jobs:
       - run: npm install -g zmp-cli
       - run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
         env:
-          NEW_ACCESS_TOKEN: KBcHMG3SgNe5wdfPpoDQ HpYP1w-ZArv0CfGAgQqgNaGnaWUgjaDO0rkXP927RK9bTDGQrOSqHqbPzNlMXJLHPc-CNkhrTcX4E8yfxULFSdDuztFnvX9LN7wlRRIrPsawQzrhjV8pToOixoEji2SW4bNhV8kB2sHcTB5Ap9vnTJb_g5M3faaF5qQT9ggEKG4j5UyVmkmAHNW3nrxPwG1cRJ3OEzlrEYTjRUa8xRuaFLP4vHdzXWH2L62xUxs-1MyTM-rde9WG9an0_I3EsJ00M0NKNRBzE68B4e5CaVf0LmGwh7UVuKrA9G3qSuNBBZ8V9iiwXFKd13uUraMWq0XXJY7gVidQ0rHh2xXV-ivxMdrNg7p4pafVM2om1k7cTZvL6imqtjm44LFOgOjigxycM0
+          NEW_ACCESS_TOKEN: ${{ secrets.ZALO_ACCESS_TOKEN }}
+      - name: Report
+        run: |
+          echo "### Deployment success! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+          echo "View your deployment result: [Version Management](https://mini.zalo.me/miniapp/${{ matrix.mini-app-id }}/versions)" >> $GITHUB_STEP_SUMMARY
