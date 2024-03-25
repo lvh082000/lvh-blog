@@ -50,6 +50,10 @@ jobs:
           node-version: 18.x
           cache: "npm"
       - run: npm install
+      # Build step
+      - name: Build
+        run: npm run build
+      # Deploy step
       - run: npm install -g zmp-cli
       - run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
         env:
