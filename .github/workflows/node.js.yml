@@ -27,17 +27,17 @@ jobs:
         with:
           node-version: 18.x
           cache: "npm"
-      - run: npx zmp-developer-token login  665783553055575149 KBcHMG3SgNe5wdfPpoDQ CZ5bG4rVG7OrEsXDIr51TZ4uRa18IZjmDdXbFanEJMSoTc0kBNKs6IrFRNXIOJDDKaXXVIHRJYGQNmDmO6fQ0KPdTtDhJrD67NKA4XvvHbWaH6qMKrasOLXj6HDGMLGYRLy0K4zJIJnrU1DU2s0yB2Pr46SnM400IbS5Cr9d8KLyNd0HH60w84TMLtauI0CDCo9UIGyOUWqoAnS_AK1VL5Ck1HinD54j9bmL6nnjHd1g1XShP3zR66TKCInyUtvvHN1ND7D_1aH655iA9249VY8nR3O2DHmD5JnV8m0NS4SABGfmDIPWDK8G3bf8V5mQO6uOAW9GPryWD08wEYyhQpuGVHyL1Lbl7W4ADLTFN1m3IKDDS0 >> $GITHUB_ENV
+      - run: npx zmp-developer-token login 4302957848165855356 KBcHMG3SgNe5wdfPpoDQ QgUY7chVf3XjhQyJRD6bE6ckgHvlok0rCUkPLrd5xNOspRaiPEtMT3hFfp5blDjM4hwe8HF3ybSNf9XsVutoBWQqeGXwdwzuAxEe34tDmYmOjxbGOwlpRWk--0z2dF5pCEAq4qVwnd0LwiesRyN1L3synt1Lpua99-lxAcR-ebqVv-mdGjhc01RzbMfUylqpMi2MI0Fdq35ovjz08ystOahU_5mjtViYLCxmOplGkq8xmxK2HCFjTZN-WZzDyiT8CO6y2tZvwd8Nof0B5TdPMqFahnaRdEfLUQUD972cqNPtj9ugCvljMtkKkma5fDnURTkjAYdKzLylyBy-9-BwHqNfyY4Co8HHLTN_Bp1AFnDkmwa- >> $GITHUB_ENV
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_ACCESS_TOKEN"
           value: ${{ env.NEW_ACCESS_TOKEN }}
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: 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
       - uses: hmanzur/actions-set-secret@v2.0.0
         with:
           name: "ZALO_REFRESH_TOKEN"
           value: ${{ env.NEW_REFRESH_TOKEN }}
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          token: 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
       - name: Report
         run: |
           echo "### Token renewal success! :sparkles:" >> $GITHUB_STEP_SUMMARY
@@ -61,9 +61,4 @@ jobs:
       - run: npm install -g zmp-cli
       - run: npx zmp-developer-token deploy ${{ matrix.mini-app-id }}
         env:
-          NEW_ACCESS_TOKEN: ${{ secrets.ZALO_ACCESS_TOKEN }}
-      - name: Report
-        run: |
-          echo "### Deployment success! :rocket:" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
-          echo "View your deployment result: [Version Management](https://mini.zalo.me/miniapp/${{ matrix.mini-app-id }}/versions)" >> $GITHUB_STEP_SUMMARY
+          NEW_ACCESS_TOKEN: HDZNI4gBYmv3qjf5J8MA3aVHt4XFdemE1wkpJqk-a7KcfwHeS9FnBYF4s1fpzuqg6UUW4KtKZ002mPuHSDMvBoJdZcb-zBvKAihhHdwPprrvpln1CiVV15_yu2rOxSO68S7l6rhdlGa2qUeWNkF535YmxmmSdhCRTh2xCH24aI4QWRysSj6LDot-m7TghEDj09tAK6gRwsaXpUfuH_cxN0pyba5T-h
